@@ -2,7 +2,12 @@
   "name": "marfa-aqa",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test --browser chromium",
+    "smoke": "npx playwright test ./tests/smoke.spec.ts --browser chromium",
+    "init": "npm install && npx playwright install",
+    "report": "npx playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
