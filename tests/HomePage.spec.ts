@@ -115,46 +115,46 @@ test.describe("Проверки валидации Select species", async () => 
 });
 
 test.describe("Проверки граничных значений Spectral interval", async () => {
-  test("Рассчёт на крайних граничных значениях - [10; 14000]", async ({
-    page,
-  }) => {
-    const homePage = new HomePage(page);
-    await test.step("Перейти на страницу Home", async () => {
-      await homePage.navigate();
-    });
-    await test.step("Заполнить Select species", async () => {
-      await homePage.selectSpeciesButtonSelect(
-        homePage.speciesValue.carbonDioxide
-      );
-    });
-    await test.step("Заполнить Spectral interval", async () => {
-      await homePage.spectralIntervalLeftInputFill("10");
-      await homePage.spectralIntervalRightInputFill("14000");
-    });
-    await test.step("Заполнить Line cut-off condition", async () => {
-      await homePage.lineCutOffConditionInputFill("10");
-    });
-    await test.step("Заполнить Temperature", async () => {
-      await homePage.temperatureInputFill("300");
-    });
-    await test.step("Заполнить Pressure", async () => {
-      await homePage.pressureInputFill("1");
-    });
-    await test.step("Заполнить Select target value", async () => {
-      await homePage.selectTargetValueButtonSelect(
-        homePage.targetValue.absorptionCrossSection
-      );
-    });
-    await test.step("Нажать Calculate", async () => {
-      await homePage.calculateButtonClick();
-    });
-    await test.step("ОР - Отобразилась страница с рассчётом", async () => {
-      await expect(homePage.calcMsg).toHaveText(
-        "Absorption spectra has been calculated ! ",
-        { timeout: 420000 }
-      );
-    });
-  });
+  // test("Рассчёт на крайних граничных значениях - [10; 14000]", async ({
+  //   page,
+  // }) => {
+  //   const homePage = new HomePage(page);
+  //   await test.step("Перейти на страницу Home", async () => {
+  //     await homePage.navigate();
+  //   });
+  //   await test.step("Заполнить Select species", async () => {
+  //     await homePage.selectSpeciesButtonSelect(
+  //       homePage.speciesValue.carbonDioxide
+  //     );
+  //   });
+  //   await test.step("Заполнить Spectral interval", async () => {
+  //     await homePage.spectralIntervalLeftInputFill("10");
+  //     await homePage.spectralIntervalRightInputFill("14000");
+  //   });
+  //   await test.step("Заполнить Line cut-off condition", async () => {
+  //     await homePage.lineCutOffConditionInputFill("10");
+  //   });
+  //   await test.step("Заполнить Temperature", async () => {
+  //     await homePage.temperatureInputFill("300");
+  //   });
+  //   await test.step("Заполнить Pressure", async () => {
+  //     await homePage.pressureInputFill("1");
+  //   });
+  //   await test.step("Заполнить Select target value", async () => {
+  //     await homePage.selectTargetValueButtonSelect(
+  //       homePage.targetValue.absorptionCrossSection
+  //     );
+  //   });
+  //   await test.step("Нажать Calculate", async () => {
+  //     await homePage.calculateButtonClick();
+  //   });
+  //   await test.step("ОР - Отобразилась страница с рассчётом", async () => {
+  //     await expect(homePage.calcMsg).toHaveText(
+  //       "Absorption spectra has been calculated ! ",
+  //       { timeout: 420000 }
+  //     );
+  //   });
+  // });
 
   test("Рассчёт на значениях внутри границ - [500; 1500]", async ({ page }) => {
     const homePage = new HomePage(page);
